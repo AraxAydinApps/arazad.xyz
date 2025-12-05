@@ -1,0 +1,1631 @@
+<!doctype html>
+<html lang="tr">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Araz Ad - İş Süreçleri Otomasyon Hizmetleri (N8N)</title>
+  <script src="/_sdk/element_sdk.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GTX179RZM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2GTX179RZM');
+</script>
+<meta name="google-site-verification" content="TeBts8gfnVfMoIB6rhWVTDmMaegbXDMro0qB_Iri2dk" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #1a1d29;
+      background: #ffffff;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation */
+    .navbar {
+      width: 100%;
+      background: #ffffff;
+      padding: 1.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 30px rgba(15, 30, 66, 0.08);
+      border-bottom: 1px solid rgba(197, 163, 103, 0.15);
+    }
+
+    .nav-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #c5a367 0%, #dbb76d 100%);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #3a4665;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links a:hover {
+      color: #0f1e42;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #c5a367 0%, #dbb76d 100%);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      background: linear-gradient(135deg, #0f1e42 0%, #1a2f5a 50%, #0f1e42 100%);
+      padding: 10rem 2.5rem 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(197, 163, 103, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(219, 183, 109, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(180deg, rgba(197, 163, 103, 0.03) 0%, transparent 100%);
+    }
+
+    .hero-content {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(197, 163, 103, 0.15);
+      color: #dbb76d;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(197, 163, 103, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      margin-bottom: 1.8rem;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 3rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #c5a367 0%, #dbb76d 100%);
+      color: #0f1e42;
+      padding: 1.1rem 3.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(197, 163, 103, 0.25);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border: 2px solid transparent;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(197, 163, 103, 0.35);
+      background: linear-gradient(135deg, #dbb76d 0%, #c5a367 100%);
+    }
+
+    /* Trust Section */
+    .trust-section {
+      width: 100%;
+      background: #f8f9fb;
+      padding: 4rem 2.5rem;
+      border-top: 1px solid rgba(197, 163, 103, 0.1);
+      border-bottom: 1px solid rgba(197, 163, 103, 0.1);
+    }
+
+    .trust-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .trust-title {
+      font-size: 0.9rem;
+      color: #6b7589;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #6b7589;
+      font-weight: 500;
+    }
+
+    /* What is N8N Section */
+    .what-is-n8n {
+      width: 100%;
+      padding: 8rem 2.5rem;
+      background: #ffffff;
+    }
+
+    .what-is-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .n8n-intro {
+      margin: 4rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .intro-card {
+      background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+      border: 2px solid rgba(197, 163, 103, 0.2);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 900px;
+      box-shadow: 0 8px 30px rgba(15, 30, 66, 0.06);
+    }
+
+    .intro-card h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .intro-card p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #4a5568;
+      text-align: center;
+    }
+
+    .benefits-section {
+      margin: 5rem 0;
+    }
+
+    .benefits-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .benefit-card {
+      background: #f8f9fb;
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      border: 1px solid rgba(15, 30, 66, 0.06);
+      transition: all 0.4s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(15, 30, 66, 0.08);
+      border-color: rgba(197, 163, 103, 0.3);
+    }
+
+    .benefit-number {
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #c5a367 0%, #dbb76d 100%);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(197, 163, 103, 0.3);
+    }
+
+    .benefit-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 1rem;
+    }
+
+    .benefit-highlight {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #c5a367;
+      margin-bottom: 1.2rem;
+    }
+
+    .benefit-description {
+      color: #4a5568;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .benefit-list {
+      list-style: none;
+      color: #4a5568;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-list li {
+      padding: 0.6rem 0;
+      padding-left: 2rem;
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .benefit-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #c5a367;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .benefit-conclusion {
+      color: #0f1e42;
+      font-weight: 500;
+      font-style: italic;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid rgba(197, 163, 103, 0.2);
+    }
+
+    .how-we-help {
+      margin: 5rem 0;
+      background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      border: 2px solid rgba(197, 163, 103, 0.15);
+    }
+
+    .help-title {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .help-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .help-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .help-item p {
+      color: #4a5568;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .help-conclusion {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #0f1e42;
+      font-weight: 600;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(197, 163, 103, 0.1);
+      border-radius: 8px;
+    }
+
+    .comparison-table {
+      margin: 5rem 0;
+    }
+
+    .table-title {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .table-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 30, 66, 0.08);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid rgba(15, 30, 66, 0.06);
+    }
+
+    .table-row:last-child {
+      border-bottom: none;
+    }
+
+    .table-header {
+      background: linear-gradient(135deg, #0f1e42 0%, #1a2f5a 100%);
+    }
+
+    .table-header .table-cell {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .table-cell {
+      padding: 1.5rem 2rem;
+      color: #4a5568;
+      background: #ffffff;
+    }
+
+    .table-row:nth-child(even) .table-cell {
+      background: #f8f9fb;
+    }
+
+    .table-cell:first-child {
+      font-weight: 600;
+      color: #0f1e42;
+      border-right: 1px solid rgba(15, 30, 66, 0.06);
+    }
+
+    .final-message {
+      margin: 5rem 0;
+      text-align: center;
+      padding: 4rem 3rem;
+      background: linear-gradient(135deg, #0f1e42 0%, #1a2f5a 100%);
+      border-radius: 16px;
+      color: #ffffff;
+      box-shadow: 0 10px 40px rgba(15, 30, 66, 0.15);
+    }
+
+    .final-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-message h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-message p {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 1rem auto;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Services Section */
+    .services {
+      width: 100%;
+      padding: 8rem 2.5rem;
+      background: #f8f9fb;
+    }
+
+    .services-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #c5a367;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .section-description {
+      font-size: 1.15rem;
+      color: #6b7589;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 4px 30px rgba(15, 30, 66, 0.06);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(15, 30, 66, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #c5a367 0%, #dbb76d 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 50px rgba(15, 30, 66, 0.12);
+      border-color: rgba(197, 163, 103, 0.2);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.8rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-list {
+      list-style: none;
+      color: #4a5568;
+    }
+
+    .service-list li {
+      padding: 0.7rem 0;
+      padding-left: 2rem;
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .service-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #c5a367;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* Why Us Section */
+    .why-us {
+      width: 100%;
+      padding: 8rem 2.5rem;
+      background: #f8f9fb;
+    }
+
+    .why-us-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 30, 66, 0.06);
+      transition: all 0.4s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(15, 30, 66, 0.08);
+    }
+
+    .feature-icon {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #0f1e42 0%, #1a2f5a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.8rem;
+      font-size: 2.5rem;
+      box-shadow: 0 8px 25px rgba(15, 30, 66, 0.15);
+      position: relative;
+    }
+
+    .feature-icon::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c5a367 0%, #dbb76d 100%);
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .feature-item h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #0f1e42;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item p {
+      color: #6b7589;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      width: 100%;
+      background: linear-gradient(135deg, #0f1e42 0%, #1a2f5a 50%, #0f1e42 100%);
+      padding: 7rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 30% 50%, rgba(197, 163, 103, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(219, 183, 109, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-secondary {
+      display: inline-block;
+      background: linear-gradient(135deg, #c5a367 0%, #dbb76d 100%);
+      color: #0f1e42;
+      padding: 1.1rem 3.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.4s ease;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 40px rgba(197, 163, 103, 0.25);
+    }
+
+    .cta-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(197, 163, 103, 0.35);
+      background: linear-gradient(135deg, #dbb76d 0%, #c5a367 100%);
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      background: #0a1428;
+      color: #9ba5b8;
+      padding: 4rem 2.5rem 2.5rem;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(197, 163, 103, 0.15);
+    }
+
+    .footer-brand {
+      max-width: 350px;
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .footer-brand p {
+      color: #9ba5b8;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .footer-column h4 {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #9ba5b8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: #c5a367;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+    }
+
+    .footer-bottom p {
+      color: #6b7589;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 6rem 2rem 5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-stats {
+        gap: 3rem;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-card {
+        padding: 2rem;
+      }
+
+      .intro-card h3 {
+        font-size: 1.5rem;
+      }
+
+      .benefits-title {
+        font-size: 1.8rem;
+      }
+
+      .help-title {
+        font-size: 1.6rem;
+      }
+
+      .table-title {
+        font-size: 1.6rem;
+      }
+
+      .table-cell {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .final-message {
+        padding: 3rem 2rem;
+      }
+
+      .final-message h3 {
+        font-size: 1.6rem;
+      }
+
+      .help-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="page-wrapper"><!-- Navigation -->
+   <nav class="navbar">
+    <div class="nav-content">
+     <div class="logo" id="site-title">
+      ARAZ AD
+     </div>
+     <ul class="nav-links">
+      <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="#referanslar">Referanslar</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+     </ul>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="hero">
+    <div class="hero-content">
+     <div class="hero-badge">
+      Profesyonel İş Çözümleri
+     </div>
+     <h1 id="hero-title">İş Süreçlerinizi Otomatikleştirin, Verimliliği Maksimize Edin</h1>
+     <p id="hero-subtitle"><a href="/" style="color: #dbb76d; font-size: 18px;">Araz Ad</a> olarak, işletmenizin dijital dönüşümünde yanınızdayız. N8N teknolojisi ile satıştan pazarlamaya, müşteri hizmetlerinden finansa kadar tüm operasyonlarınızı otomatikleştirerek rekabet avantajı sağlıyoruz.</p>
+<a href="https://wa.me/905551875798?text=Merhaba%2C%20n8n%20dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1%20i%C3%A7in%20ba%C5%9Fvurmak%20istiyorum.%0AAd%3A %0AWeb Sitesi veya Sosyal Medya Linki%3A %0A%C5%9Eirket%3A %0AK%C4%B1sa%20A%C3%A7%C4%B1klama%3A " class="cta-secondary" target="_blank" rel="noopener noreferrer">
+  Ücretsiz Danışmanlık
+</a>
+    </div>
+   </section><!-- Trust Section -->
+   <section class="trust-section">
+    <div class="trust-content">
+     <div class="trust-title">
+      Rakamlarla Araz Ad
+     </div>
+     <div class="trust-stats">
+      <div class="stat-item">
+       <div class="stat-number">
+        150+
+       </div>
+       <div class="stat-label">
+        Kurumsal Müşteri
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        %85
+       </div>
+       <div class="stat-label">
+        Verimlilik Artışı
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        24/7
+       </div>
+       <div class="stat-label">
+        Teknik Destek
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- What is N8N Section -->
+   <section class="what-is-n8n">
+    <div class="what-is-content">
+     <div class="section-header">
+      <div class="section-subtitle">
+       N8N Nedir?
+      </div>
+      <h2 class="section-title">Zamanınızı Geri Veren ve Hataları Azaltan Akıllı Otomasyon</h2>
+      <p class="section-description">Bir işin büyümesindeki en büyük engellerden biri tekrarlayan işlerdir. Her gün aynı veri girişlerini yapmak, aynı dosyaları hazırlamak, aynı kişilere bilgi göndermek… Bunlar zaman çalar, yorucu olur ve insan hatasına açıktır.</p>
+     </div>
+     <div class="n8n-intro">
+      <div class="intro-card">
+       <h3>N8N Nedir?</h3>
+       <p><strong>N8N</strong>, tüm bu tekrarlayan süreçleri <strong>otomatikleştiren bir sistemdir.</strong> Siz işinizi büyütmeye odaklanırken, arka plandaki işleri n8n sizin yerinize yapar.</p>
+      </div>
+     </div>
+     <div class="benefits-section">
+      <h3 class="benefits-title">💡 N8N Size Ne Kazandırır?</h3>
+      <div class="benefits-grid">
+       <div class="benefit-card">
+        <div class="benefit-number">
+         01
+        </div>
+        <h4>⏰ Zaman Tasarrufu</h4>
+        <p class="benefit-highlight">Günlük 6-10 saat geri kazandırır</p>
+        <ul class="benefit-list">
+         <li>Sipariş geldiğinde müşteriye otomatik bildirim gider</li>
+         <li>Veriler otomatik işlenir</li>
+         <li>Raporlar kendiliğinden hazırlanır</li>
+         <li>Ekip içi bilgi akışı kendi kendine gerçekleşir</li>
+        </ul>
+        <p class="benefit-conclusion">Böylece çalışanlarınız manuel işlemler yerine gerçek verim sağlayan işlere odaklanır.</p>
+       </div>
+       <div class="benefit-card">
+        <div class="benefit-number">
+         02
+        </div>
+        <h4>✓ İnsan Hatalarını Ortadan Kaldırır</h4>
+        <p class="benefit-description">Tekrar eden işler, rakam hataları ve unutmaların ana sebebidir. N8N sayesinde:</p>
+        <ul class="benefit-list">
+         <li>Yanlış veri girişi azalır</li>
+         <li>Atlanmış müşteri kalmaz</li>
+         <li>Belgeler doğru formatta ve eksiksiz hazırlanır</li>
+        </ul>
+        <p class="benefit-conclusion"><strong>Süreçleriniz makine hassasiyetiyle işler.</strong></p>
+       </div>
+       <div class="benefit-card">
+        <div class="benefit-number">
+         03
+        </div>
+        <h4>💰 Maliyetleri Düşürür</h4>
+        <p class="benefit-description">N8N, manuel iş gücünün yaptığı birçok işi devraldığı için:</p>
+        <ul class="benefit-list">
+         <li>Ek personel ihtiyacı azalır</li>
+         <li>Mevcut çalışanların kapasitesi artar</li>
+         <li>İşlerin hızlanmasıyla daha fazla müşteri karşılanabilir</li>
+        </ul>
+        <p class="benefit-conclusion"><strong>Kısacası, aynı ekiple daha fazla iş yaparsınız.</strong></p>
+       </div>
+       <div class="benefit-card">
+        <div class="benefit-number">
+         04
+        </div>
+        <h4>🔗 Tüm Sistemlerinizi Birbirine Bağlar</h4>
+        <p class="benefit-description">N8N, kullandığınız uygulamaların birbiri ile otomatik konuşmasını sağlar:</p>
+        <ul class="benefit-list">
+         <li>E-ticaret → Muhasebe → Kargo sistemi</li>
+         <li>CRM → WhatsApp → Google Sheets</li>
+         <li>Form → Excel → E-posta</li>
+        </ul>
+        <p class="benefit-conclusion">"Veriyi ben niye bir yerden alıp ötekine taşıyayım?" dönemi biter.</p>
+       </div>
+       <div class="benefit-card">
+        <div class="benefit-number">
+         05
+        </div>
+        <h4>📋 İş Akışlarını Standartlaştırır</h4>
+        <p class="benefit-description">Her işlem aynı şekilde, aynı sırayla, aynı kaliteyle yapılır.</p>
+        <ul class="benefit-list">
+         <li>Süreçler kişiye bağlı olmaktan çıkar</li>
+         <li>Şirketin kendisi düzene kavuşur</li>
+         <li>Kalite standartları sürekli aynı kalır</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="how-we-help">
+      <h3 class="help-title">🔧 Biz N8N ile Size Nasıl Yardımcı Oluyoruz?</h3>
+      <div class="help-grid">
+       <div class="help-item">
+        <div class="help-icon">
+         🔍
+        </div>
+        <p>Şirketinizi analiz edip hangi işlemlerin otomasyonla çözüleceğini belirleriz</p>
+       </div>
+       <div class="help-item">
+        <div class="help-icon">
+         ⚙️
+        </div>
+        <p>Sizin için özel iş akışları tasarlarız</p>
+       </div>
+       <div class="help-item">
+        <div class="help-icon">
+         🚀
+        </div>
+        <p>Kurulumu, entegrasyonları ve testleri yaparız</p>
+       </div>
+       <div class="help-item">
+        <div class="help-icon">
+         🎓
+        </div>
+        <p>Ekiplerinize kullanım eğitimi veririz</p>
+       </div>
+       <div class="help-item">
+        <div class="help-icon">
+         🛠️
+        </div>
+        <p>Her şey sorunsuz çalışsın diye sürekli destek sağlarız</p>
+       </div>
+      </div>
+      <p class="help-conclusion"><strong>Siz uğraşmazsınız, biz kurarız — siz sadece sonuçlarını görürsünüz.</strong></p>
+     </div>
+     <div class="comparison-table">
+      <h3 class="table-title">🎯 Kısacası, N8N İşinize Ne Sağlar?</h3>
+      <div class="table-wrapper">
+       <div class="table-row table-header">
+        <div class="table-cell">
+         Faydası
+        </div>
+        <div class="table-cell">
+         Sonuç
+        </div>
+       </div>
+       <div class="table-row">
+        <div class="table-cell">
+         Otomasyon
+        </div>
+        <div class="table-cell">
+         Hızlı süreçler
+        </div>
+       </div>
+       <div class="table-row">
+        <div class="table-cell">
+         Veri doğruluğu
+        </div>
+        <div class="table-cell">
+         Daha az hata
+        </div>
+       </div>
+       <div class="table-row">
+        <div class="table-cell">
+         Tasarruf
+        </div>
+        <div class="table-cell">
+         Daha düşük maliyet
+        </div>
+       </div>
+       <div class="table-row">
+        <div class="table-cell">
+         Uygulamalar arası entegrasyon
+        </div>
+        <div class="table-cell">
+         Daha düzenli şirket
+        </div>
+       </div>
+       <div class="table-row">
+        <div class="table-cell">
+         Tekrarlayan işleri ortadan kaldırma
+        </div>
+        <div class="table-cell">
+         Zaman kazancı
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="final-message">
+      <div class="final-icon">
+       🧲
+      </div>
+      <h3>Son Söz</h3>
+      <p><strong>N8N, büyümek isteyen her işletmenin en sessiz çalışanıdır.</strong></p>
+      <p>Gece-gündüz yorulmadan çalışır, işleri zamanında ve eksiksiz yapar, size ise sadece işletmenizi büyütmek kalır.</p>
+     </div>
+    </div>
+   </section><!-- Services Section -->
+   <section class="services" id="hizmetler">
+    <div class="services-content">
+     <div class="section-header">
+      <div class="section-subtitle">
+       Hizmetlerimiz
+      </div>
+      <h2 class="section-title">Kapsamlı Otomasyon Çözümleri</h2>
+      <p class="section-description">İşletmenizin her departmanı için özelleştirilmiş, entegre otomasyon sistemleri sunuyoruz</p>
+     </div>
+     <div class="services-grid">
+      <div class="service-card"><span class="service-icon">🎯</span>
+       <h3>Satış Otomasyonu</h3>
+       <ul class="service-list">
+        <li>Müşteri mesajlarına otomatik yanıt sistemi</li>
+        <li>Potansiyel müşteri takip ve yönlendirme</li>
+        <li>Otomatik teklif hazırlama ve gönderim</li>
+        <li>CRM entegrasyonu (HubSpot, Zoho, Pipedrive)</li>
+        <li>Lead puanlama ve segmentasyon</li>
+        <li>Çok dilli yapay zeka destekli chatbot</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">💼</span>
+       <h3>Müşteri İlişkileri Yönetimi</h3>
+       <ul class="service-list">
+        <li>Omnichannel mesaj yönetimi</li>
+        <li>ChatGPT entegreli çok dilli destek</li>
+        <li>Müşteri duygu analizi ve raporlama</li>
+        <li>Otomatik ticket oluşturma ve takip</li>
+        <li>Akıllı şikayet yönetim sistemi</li>
+        <li>Sosyal medya izleme ve hızlı yanıt</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">📊</span>
+       <h3>Pazarlama ve İçerik Otomasyonu</h3>
+       <ul class="service-list">
+        <li>Otomatik e-posta ve SMS kampanyaları</li>
+        <li>Davranış bazlı müşteri segmentasyonu</li>
+        <li>WhatsApp Business otomasyonu</li>
+        <li>AI destekli içerik üretimi (caption, blog, video)</li>
+        <li>Sosyal medya zamanlama ve yayınlama</li>
+        <li>Reklam performans takibi ve optimizasyonu</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">📈</span>
+       <h3>İş Zekası ve Analitik</h3>
+       <ul class="service-list">
+        <li>Tüm sistemlerin tek panelde konsolidasyonu</li>
+        <li>Otomatik raporlama (günlük/haftalık/aylık)</li>
+        <li>Google Sheets ve BigQuery entegrasyonu</li>
+        <li>Kod yazmadan veri pipeline oluşturma</li>
+        <li>Yapay zeka ile satış tahmini</li>
+        <li>Yönetim ekibine anlık KPI bildirimleri</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">⚙️</span>
+       <h3>Operasyonel Süreç Yönetimi</h3>
+       <ul class="service-list">
+        <li>Kurumsal iş akışı otomasyonu (BPM)</li>
+        <li>Çok aşamalı onay süreçleri</li>
+        <li>Dijital sözleşme yönetimi</li>
+        <li>Lojistik ve depo operasyonları</li>
+        <li>Sipariş yönetimi ve kurye entegrasyonu</li>
+        <li>Kurumsal yazılım entegrasyonları</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">🤖</span>
+       <h3>Yapay Zeka Çözümleri</h3>
+       <ul class="service-list">
+        <li>Akıllı sanal asistan geliştirme</li>
+        <li>Otomatik çeviri (100+ dil desteği)</li>
+        <li>Doküman ve e-posta özetleme</li>
+        <li>Görsel ve faturalardan veri çıkarma</li>
+        <li>Ses tanıma ve metin dönüşümü</li>
+        <li>Web sitesi için özel AI chatbot</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">💰</span>
+       <h3>Finans ve Muhasebe</h3>
+       <ul class="service-list">
+        <li>Otomatik fatura oluşturma ve gönderim</li>
+        <li>Akıllı ödeme hatırlatma sistemi</li>
+        <li>Banka mutabakat otomasyonu</li>
+        <li>Anlık kâr-zarar raporlama</li>
+        <li>Muhasebe yazılımları entegrasyonu</li>
+        <li>Müşteri kredi limiti takibi</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">👥</span>
+       <h3>İnsan Kaynakları Yönetimi</h3>
+       <ul class="service-list">
+        <li>Dijital giriş-çıkış kayıt sistemi</li>
+        <li>İzin ve mesai takip otomasyonu</li>
+        <li>Otomatik işe alım ve CV filtreleme</li>
+        <li>Yeni çalışan onboarding süreçleri</li>
+        <li>Eğitim ve gelişim takip sistemi</li>
+        <li>Performans değerlendirme otomasyonu</li>
+       </ul>
+      </div>
+      <div class="service-card"><span class="service-icon">🔗</span>
+       <h3>Sistem Entegrasyonları</h3>
+       <ul class="service-list">
+        <li>3000+ uygulama ve platform desteği</li>
+        <li>WhatsApp, Instagram, Telegram entegrasyonu</li>
+        <li>E-ticaret platformları (Shopify, WooCommerce)</li>
+        <li>CRM ve ERP sistemleri bağlantısı</li>
+        <li>Google Workspace ve Microsoft 365</li>
+        <li>Özel API geliştirme ve entegrasyon</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section><!-- Why Us Section -->
+   <section class="why-us" id="hakkimizda">
+    <div class="why-us-content">
+     <div class="section-header">
+      <div class="section-subtitle">
+       Neden Araz Ad?
+      </div>
+      <h2 class="section-title">Güvenilir İş Ortağınız</h2>
+      <p class="section-description">Kurumsal tecrübemiz ve teknoloji uzmanlığımızla işletmenizin başarısı için çalışıyoruz</p>
+     </div>
+     <div class="features-grid">
+      <div class="feature-item">
+       <div class="feature-icon">
+        ⚡
+       </div>
+       <h3>Hızlı Uygulama</h3>
+       <p>Minimum kesinti ile maksimum hızda sistemlerinizi devreye alıyor, işinizi aksatmadan dijital dönüşümünüzü gerçekleştiriyoruz.</p>
+      </div>
+      <div class="feature-item">
+       <div class="feature-icon">
+        🎓
+       </div>
+       <h3>Uzman Kadro</h3>
+       <p>Sertifikalı teknik ekibimiz ve iş analisti kadromuzla sektörünüze özel en uygun çözümleri sunuyoruz.</p>
+      </div>
+      <div class="feature-item">
+       <div class="feature-icon">
+        💎
+       </div>
+       <h3>Kaliteli Hizmet</h3>
+       <p>ISO standartlarında hizmet kalitesi, düzenli raporlama ve sürekli iyileştirme yaklaşımıyla fark yaratıyoruz.</p>
+      </div>
+      <div class="feature-item">
+       <div class="feature-icon">
+        🔒
+       </div>
+       <h3>Güvenlik Önceliği</h3>
+       <p>Verileriniz en yüksek güvenlik standartlarıyla korunur. KVKK ve GDPR uyumlu altyapımızla güvencedeyiz.</p>
+      </div>
+      <div class="feature-item">
+       <div class="feature-icon">
+        📞
+       </div>
+       <h3>7/24 Destek</h3>
+       <p>Teknik destek ekibimiz her zaman yanınızda. Ayrıca düzenli eğitimler ve güncellemelerle sürekli bilgilendirme sağlıyoruz.</p>
+      </div>
+      <div class="feature-item">
+       <div class="feature-icon">
+        📐
+       </div>
+       <h3>Ölçeklenebilir Mimari</h3>
+       <p>İşletmeniz büyüdükçe sistemleriniz de büyür. Esnek altyapımız sayesinde her zaman güncel kalırsınız.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section class="cta-section" id="iletisim">
+    <div class="cta-content">
+     <h2>Dijital Dönüşümünüz İçin İlk Adımı Atın</h2>
+     <p>Uzman ekibimizle ücretsiz ön görüşme yapın. İşletmenize özel otomasyon yol haritanızı birlikte belirleyelim ve verimliliğinizi katlanarak artıralım.</p>
+<a href="https://wa.me/905551875798?text=Merhaba%2C%20n8n%20dan%C4%B1%C5%9Fmanl%C4%B1%C4%9F%C4%B1%20i%C3%A7in%20ba%C5%9Fvurmak%20istiyorum.%0AAd%3A %0AWeb Sitesi veya Sosyal Medya Linki%3A %0A%C5%9Eirket%3A %0AK%C4%B1sa%20A%C3%A7%C4%B1klama%3A " class="cta-secondary" target="_blank" rel="noopener noreferrer">
+  Ücretsiz Görüşme Talep Et
+</a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="footer">
+    <div class="footer-content">
+     <div class="footer-main">
+      <div class="footer-brand"><span class="footer-logo" id="company-name">ARAZ AD</span>
+       <p>İşletmenizin dijital dönüşüm sürecinde profesyonel iş süre  leri otomasyon çözümleri sunan güvenilir danışmanlık firmanız.</p>
+      </div>
+      <div class="footer-column">
+       <h4>Hizmetler</h4>
+       <ul class="footer-links">
+        <li><a href="#hizmetler">Satış Otomasyonu</a></li>
+        <li><a href="#hizmetler">Müşteri Hizmetleri</a></li>
+        <li><a href="#hizmetler">Pazarlama</a></li>
+        <li><a href="#hizmetler">İş Zekası</a></li>
+       </ul>
+      </div>
+      <div class="footer-column">
+       <h4>Kurumsal</h4>
+       <ul class="footer-links">
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#referanslar">Referanslar</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">Blog</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">Kariyer</a></li>
+       </ul>
+      </div>
+      <div class="footer-column">
+       <h4>İletişim</h4>
+       <ul class="footer-links">
+        <li><a href="#iletisim">Bize Ulaşın</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">Destek</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">SSS</a></li>
+        <li><a href="#" target="_blank" rel="noopener noreferrer">İletişim Formu</a></li>
+       </ul>
+      </div>
+     </div>
+     <div class="footer-bottom">
+      <p id="footer-text">© 2024 Araz Ad Danışmanlık ve Teknoloji A.Ş. Tüm hakları saklıdır.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: '#f8f9fb',
+      surface_color: '#ffffff',
+      text_color: '#0f1e42',
+      primary_action_color: '#c5a367',
+      secondary_action_color: '#1a2f5a',
+      font_family: 'Inter',
+      font_size: 16,
+      site_title: 'ARAZ AD',
+      hero_title: 'İş Süreçlerinizi Otomatikleştirin, Verimliliği Maksimize Edin',
+      hero_subtitle: 'Araz Ad olarak, işletmenizin dijital dönüşümünde yanınızdayız. N8N teknolojisi ile satıştan pazarlamaya, müşteri hizmetlerinden finansa kadar tüm operasyonlarınızı otomatikleştirerek rekabet avantajı sağlıyoruz.',
+      cta_button: 'Ücretsiz Danışmanlık',
+      company_name: 'ARAZ AD',
+      footer_text: '© 2024 Araz Ad Danışmanlık ve Teknoloji A.Ş. Tüm hakları saklıdır.'
+    };
+
+    async function onConfigChange(config) {
+      const baseFontSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = '-apple-system, BlinkMacSystemFont, sans-serif';
+
+      // Apply font family
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      // Apply font sizes
+      document.body.style.fontSize = `${baseFontSize}px`;
+      
+      const h1Elements = document.querySelectorAll('.hero h1, .cta-section h2');
+      h1Elements.forEach(el => el.style.fontSize = `${baseFontSize * 2.5}px`);
+      
+      const h2Elements = document.querySelectorAll('.section-title');
+      h2Elements.forEach(el => el.style.fontSize = `${baseFontSize * 1.875}px`);
+      
+      const h3Elements = document.querySelectorAll('.service-card h3, .feature-item h3');
+      h3Elements.forEach(el => el.style.fontSize = `${baseFontSize * 1.25}px`);
+
+      // Apply colors
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+      // Background colors
+      document.querySelector('.trust-section').style.background = backgroundColor;
+      document.querySelector('.why-us').style.background = backgroundColor;
+      
+      // Surface colors
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => card.style.background = surfaceColor);
+
+      const featureItems = document.querySelectorAll('.feature-item');
+      featureItems.forEach(item => item.style.background = surfaceColor);
+
+      const navbar = document.querySelector('.navbar');
+      if (navbar) navbar.style.background = surfaceColor;
+
+      // Text colors
+      document.body.style.color = textColor;
+      
+      const headings = document.querySelectorAll('.section-title, .service-card h3, .feature-item h3, .logo, .footer-logo');
+      headings.forEach(el => el.style.color = textColor);
+
+      // Primary action colors (buttons and accents)
+      const ctaButtons = document.querySelectorAll('.cta-button, .cta-secondary');
+      ctaButtons.forEach(btn => {
+        btn.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${primaryColor} 100%)`;
+        btn.style.color = surfaceColor;
+      });
+
+      const checkmarks = document.querySelectorAll('.service-list li');
+      const checkmarkStyle = document.getElementById('checkmark-style') || document.createElement('style');
+      checkmarkStyle.id = 'checkmark-style';
+      checkmarkStyle.textContent = `.service-list li::before { color: ${primaryColor} !important; }`;
+      if (!document.getElementById('checkmark-style')) {
+        document.head.appendChild(checkmarkStyle);
+      }
+
+      // Secondary colors (hero and CTA backgrounds)
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.background = `linear-gradient(135deg, ${secondaryColor} 0%, ${textColor} 50%, ${secondaryColor} 100%)`;
+      }
+
+      const ctaSection = document.querySelector('.cta-section');
+      if (ctaSection) {
+        ctaSection.style.background = `linear-gradient(135deg, ${secondaryColor} 0%, ${textColor} 50%, ${secondaryColor} 100%)`;
+      }
+
+      const featureIcons = document.querySelectorAll('.feature-icon');
+      featureIcons.forEach(icon => {
+        icon.style.background = `linear-gradient(135deg, ${secondaryColor} 0%, ${textColor} 100%)`;
+      });
+
+      // Apply text content
+      const siteTitle = document.getElementById('site-title');
+      if (siteTitle) siteTitle.textContent = config.site_title || defaultConfig.site_title;
+
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+
+      const ctaButton = document.getElementById('cta-button');
+      if (ctaButton) ctaButton.textContent = config.cta_button || defaultConfig.cta_button;
+
+      const companyName = document.getElementById('company-name');
+      if (companyName) companyName.textContent = config.company_name || defaultConfig.company_name;
+
+      const footerText = document.getElementById('footer-text');
+      if (footerText) footerText.textContent = config.footer_text || defaultConfig.footer_text;
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                window.elementSdk.config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                window.elementSdk.config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                window.elementSdk.config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action_color || defaultConfig.primary_action_color,
+              set: (value) => {
+                window.elementSdk.config.primary_action_color = value;
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+              set: (value) => {
+                window.elementSdk.config.secondary_action_color = value;
+                window.elementSdk.setConfig({ secondary_action_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              window.elementSdk.config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              window.elementSdk.config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['site_title', config.site_title || defaultConfig.site_title],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+          ['cta_button', config.cta_button || defaultConfig.cta_button],
+          ['company_name', config.company_name || defaultConfig.company_name],
+          ['footer_text', config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a8b026bb574cd0f',t:'MTc2NDg0ODIyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
